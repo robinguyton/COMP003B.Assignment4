@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Http;
+
 namespace COMP003B.Assignment4
 {
     public class Program
@@ -21,6 +23,8 @@ namespace COMP003B.Assignment4
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseMiddleware<RequestTrackerMiddleware>();
 
             app.UseRouting();
 

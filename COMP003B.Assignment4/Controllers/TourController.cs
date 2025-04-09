@@ -4,11 +4,11 @@ namespace COMP003B.TourController.Controllers
 {
     public class RegisterModel
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Summary { get; set; }
-
-        public IActionResult Index()
+        public int? Id {  get; set; }
+        public string? Title {  get; set; }
+        public string? Summary {  get; set; }
+    
+        public IActionResult Privacy()
         {
             var registerModel = new List<RegisterModel>
         {
@@ -27,14 +27,11 @@ namespace COMP003B.TourController.Controllers
 
         public IActionResult Stars(int id)
         {
-            var registermodel = new RegisterModel { Id = id, Title = $"Article {id}", Summary = "Detailed content coming soon." };
+            var registermodel = new RegisterModel { Id = id, Title = $"Stars {id}", Summary = "View top performing players." };
             return view();
         }
 
-        private IActionResult View(RegisterModel article)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 
 }
