@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace COMP003B.Assignment3.Controllers
 {
-    public class TourController : Controller
+    public class HomeController : Controller
     {
-        private readonly ILogger<TourController> _logger;
+        private readonly ILogger<HomeController> _logger;
 
-        public TourController(ILogger<TourController> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
