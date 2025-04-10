@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Views_AboutArsenal_Last3Games>
+
+@{
+    ViewData["Title"] = "Last 3 Games";
+    Layout = "_ArticleCard";
+}
+
+<h2>Articles</h2>
+
+@foreach (var ArsenalModel in Model)
+{
+    <partial name="_ArticleCard" model="ArsenalModel" />
+}

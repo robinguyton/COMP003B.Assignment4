@@ -1,37 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreGeneratedDocument;
+using COMP003B.Assignment4.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace COMP003B.TourController.Controllers
+namespace COMP003B.Assignment4.Controllers
 {
-    public class RegisterModel
+    public class TourController : Controller // Inherit from Controller to use View()
     {
-        public int? Id {  get; set; }
-        public string? Title {  get; set; }
-        public string? Summary {  get; set; }
-    
+        public int? Id { get; set; }
+        public string? Title { get; set; }
+        public string? Summary { get; set; }
+
         public IActionResult Privacy()
         {
-            var registerModel = new List<RegisterModel>
-        {
-            new RegisterModel { Id = 1, Title = "Last 3 Games", Summary = "Team performance over the last 3 games" },
-            new RegisterModel{ Id = 2, Title = "Arsenal Stars", Summary = "Who are the top performing players at the club right now?" }
+            var ArsenalModel = new List<ArsenalModel>
+                           {
+                               new ArsenalModel { Id = 1, Title = "Last 3 Games", Summary = "Team performance over the last 3 games" },
+                               new ArsenalModel { Id = 2, Title = "Arsenal Stars", Summary = "Who are the top performing players at the club right now?" }
+                           };
 
-        };
-
-            return view ();
+            return View("Stars");
         }
 
-        private IActionResult view()
+        public class AboutArsenalController : Controller
         {
-            throw new NotImplementedException();
+            [HttpGet("AboutArsenal/Last3Games")]
+            public IActionResult Last3Games()
+            {
+                return View();
+            }
         }
 
-        public IActionResult Stars(int id)
+        public IActionResult Details(int id)
         {
-            var registermodel = new RegisterModel { Id = id, Title = $"Stars {id}", Summary = "View top performing players." };
-            return view();
+         
+            var article = new ArsenalModel { Id = id, Title = $"Article {id}", Summary = "Detailed content coming soon." };
+            return View(article);
         }
-
-
     }
 
 }
