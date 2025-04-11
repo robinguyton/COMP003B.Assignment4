@@ -11,39 +11,38 @@ namespace COMP003B.Assignment4.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Register([FromForm] RegistrationController model)
+        [HttpPost("Register/Tickets")]
+        public IActionResult Tickets([FromForm] RegisterModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View();
             }
 
-            return RedirectToAction("GameTime", model);
-        }
-
-        [HttpGet("Register/FanClub")]
-        public IActionResult FanClub()
-        {
-            return View("~/Views/Register/FanClub.cshtml");
-        }
-
-        [HttpPost]
-        public IActionResult FanClub([FromForm] RegistrationController model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            // Add a return statement to handle all code paths
-            return RedirectToAction("GameTime", model);
+            return RedirectToAction("GameTime");
         }
 
         [HttpGet]
-        public IActionResult GameTime(RegistrationController model)
+        public IActionResult GameTime()
         {
-            return View(model);
+            return View();
+        }
+
+        [HttpPost("Views/Register/FanClub")]
+        public IActionResult FanClub([FromForm] object model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            return RedirectToAction("GameTime");
+        }
+
+        [HttpGet("Views/Register/FanClub")]
+        public IActionResult FanClub()
+        {
+            return View();
         }
     }
 

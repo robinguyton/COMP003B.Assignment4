@@ -29,17 +29,17 @@ namespace COMP003B.Assignment4
         [Required][EmailAddress]
         public string EmailAddress { get; set; }
 
-        [Required]
+        
         [CreditCard]
         [MaxLength(16)]
-        public int CreditCard { get; set; }
+        public int? CreditCard { get; set; }
 
 
         [Required][Range(1, 10)]
         public string Tickets { get; set; }
 
         [Required][MinLength(12)][MaxLength(18)]
-        public string AFCNumber { get; set; }
+        public string? AFCNumber { get; set; }
 
 
 

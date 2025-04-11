@@ -1,13 +1,11 @@
-﻿@model IEnumerable<Views_AboutArsenal_Last3Games>
+﻿@model ArsenalModel
 
-@{
-    ViewData["Title"] = "Last 3 Games";
-    Layout = "_ArticleCard";
-}
+<div class="card mb-3">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Title</h4>
+        <p class="card-text">@Model.Summary</p>
+        <a asp-action="Last3Games" asp-route-id="ArsenalModel" class="btn btn-outline-primary">Read More</a>
+    </div>
+</div>
 
-<h2>Articles</h2>
 
-@foreach (var ArsenalModel in Model)
-{
-    <partial name="_ArticleCard" model="ArsenalModel" />
-}

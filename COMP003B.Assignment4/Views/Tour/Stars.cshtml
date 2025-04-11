@@ -1,0 +1,25 @@
+﻿@model IEnumerable<COMP003B.Assignment4.Models.ArsenalModel>
+
+@{
+    ViewData["Title"] = "Stars";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+	
+}
+
+
+
+@foreach (var game in Model)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h4 class="card-title">@game.Title</h4>
+            <p class="card-text">@game.Summary</p>
+        </div>
+    </div>
+}
+
+<nav>
+    <a asp-controller="Home" asp-action="Index">Home</a> |
+    <a asp-controller="Tour" asp-action="Last3Games">Check out our most recent results!</a>
+</nav>

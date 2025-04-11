@@ -7,10 +7,12 @@ namespace COMP003B.Assignment4.Models
 
         [Required]
         [StringLength(100)]
-        public string Title { get; set; }
+        public string Title{ get; set; }
 
         [Required]
         [StringLength(300)]
-        public string Summary { get; set; }
+        public string Summary{ get; set; }
+
+
     }
 }
